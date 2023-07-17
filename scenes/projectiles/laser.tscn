@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://w1hxio7gf26c"]
+
+[ext_resource type="Texture2D" uid="uid://bcokuscsiyw72" path="res://graphics/projectiles/blue.png" id="1_em2wn"]
+[ext_resource type="Script" path="res://scenes/projectiles/laser.gd" id="1_ikvv8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_am0pt"]
+radius = 8.0
+height = 44.0
+
+[node name="Laser" type="Area2D"]
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_ikvv8")
+speed = 2000
+
+[node name="LaserSprite" type="Sprite2D" parent="."]
+position = Vector2(-60, -1)
+rotation = 1.5708
+texture = ExtResource("1_em2wn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_am0pt")
+
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]
