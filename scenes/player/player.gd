@@ -24,7 +24,9 @@ func _process(_delta):
 	var player_direction = (get_global_mouse_position() - position).normalized()
 	
 	# Laser input
-	if Input.is_action_just_pressed("primary action") and shoot_ready:
+	if Input.is_action_just_pressed("primary action") and shoot_ready and Globals.laser_amount > 0:
+		# Laser amount -= 1
+		Globals.laser_amount -= 1
 		# Start the particle
 		$GunParticle.emitting = true
 		# Get all of the marks
@@ -39,7 +41,9 @@ func _process(_delta):
 		shoot_ready = false
 	
 	# Grenade input
-	if Input.is_action_just_pressed("secondary action") and grenade_ready:
+	if Input.is_action_just_pressed("secondary action") and grenade_ready and Globals.grenade_amount > 0:
+		# Grenade amount -= 1
+		Globals.grenade_amount -= 1
 		# Get all of the marks and randomize it, get the global_position of the selected mark
 		var grenade_pos = $LaserStartPosition.get_children()[randi() % 3].global_position
 		# Start the cooldown timer
