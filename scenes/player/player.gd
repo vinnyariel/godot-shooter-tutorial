@@ -8,7 +8,6 @@ var shoot_ready: bool = true
 var grenade_ready: bool = true
 signal laser_shoot(pos, direction)
 signal grenade_shoot(pos, direction)
-signal ui_update
 
 func _process(_delta):
 	# Check inputs (AWSD or Left, Right, Up, Down arrows)
@@ -59,10 +58,3 @@ func _on_shoot_timer_timeout():
 
 func _on_grenade_timer_timeout():
 	grenade_ready = true
-
-func add_item(type):
-	if type == "laser":
-		Globals.laser_amount += 10
-	if type == "grenade":
-		Globals.grenade_amount += 3
-	ui_update.emit()

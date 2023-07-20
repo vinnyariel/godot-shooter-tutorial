@@ -88,6 +88,6 @@ grow_vertical = 2
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar/MarginContainer"]
 layout_mode = 2
-value = 50.0
+value = 100.0
 texture_under = ExtResource("4_ojss6")
 texture_progress = ExtResource("5_28pqm")
