@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cqll7sne654bx"]
+[gd_scene load_steps=24 format=3 uid="uid://cqll7sne654bx"]
 
 [ext_resource type="PackedScene" uid="uid://c7r30epo0e6cu" path="res://scenes/levels/level.tscn" id="1_v1ps0"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_8hm88"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c3ftnim0xigd7" path="res://scenes/objects/light_fan_animation.tscn" id="5_4fl6t"]
 [ext_resource type="PackedScene" uid="uid://d2vov5ekxqiaj" path="res://scenes/objects/gate.tscn" id="6_8xa1l"]
 [ext_resource type="PackedScene" uid="uid://df0ynyk7hxo1t" path="res://scenes/objects/steam_vent.tscn" id="7_lq03v"]
+[ext_resource type="PackedScene" uid="uid://pon0xwjxlga3" path="res://scenes/items/item.tscn" id="10_qe7b7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r4ab5"]
 resource_name = "Soil"
@@ -178,5 +179,8 @@ position = Vector2(1139, -114)
 [node name="Player" parent="." index="6"]
 position = Vector2(640, -106)
 rotation = 1.309
+
+[node name="Item" parent="." index="8" instance=ExtResource("10_qe7b7")]
+position = Vector2(305, 246)
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
